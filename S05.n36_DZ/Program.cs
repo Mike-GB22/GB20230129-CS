@@ -2,7 +2,7 @@
 Console.WriteLine("Hello, World! mip20230215");
 Console.WriteLine(
     "Задача №36.\n"
-    + "Задайте одномерный массив, заполненный случайными числами." 
+    + "Задайте одномерный массив, заполненный случайными числами."
     + "Найдите сумму элементов, стоящих на нечётных позициях."
     + "[3, 7, 23, 12] -> 19; [-4, -6, 89, 6] -> 0"
     + "\n");
@@ -41,15 +41,19 @@ void PrintArray(int[] array)
 int SumElementsOnOddPositionsInArray(int[] array)
 {
     int summ = 0;
-    for (int i = 0; i < array.Length; i++)
+    //for (int i = 0; i < array.Length; i++)
+    //{
+    //    if (i%2!=0) summ+= array[i];
+    //}
+    for (int i = 1; i < array.Length; i += 2)
     {
-        if (i%2!=0) summ+= array[i];
+        summ += array[i];
     }
     return summ;
 }
 
 
-int[] array = GenerationArray(2, -999, 999);
+int[] array = GenerationArray(5, -999, 999);
 PrintArray(array);
 
 PrintResult($"Сумма чисел на нечетных позициях равна", SumElementsOnOddPositionsInArray(array).ToString());
