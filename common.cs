@@ -23,7 +23,7 @@ int ReadKeyboardInt(string prompt)
 }
 
 //Вывод строки
-void PrintString(string prompt, string text)
+void PrintString(string prompt, string text = "")
 {
     Console.WriteLine(prompt + ": " + text);
 }
@@ -108,8 +108,31 @@ void Print2xArray(int[,] array)
 //Доведение строки до размера int maxCharsInElement
 string TabulationText(string text, int maxCharsInElement)
 {
-    for(int weHave = text.Length; weHave < maxCharsInElement; weHave++){
-    text = " " + text;
+    if (text.Length > maxCharsInElement)
+    {
+        text = text.Substring(0, maxCharsInElement);
     }
-return text;
+    else
+    {
+        for (int weHave = text.Length; weHave < maxCharsInElement; weHave++)
+        {
+            text = " " + text;
+        }
+    }
+    return text;
+}
+
+//Изменине цвета вывода текста в консоль, тут для чисел. Сброс цвтвета, по слову "reset".
+void ConsoleColorZahle(string text = "reset")
+{
+    if (text == "reset") Console.ResetColor();
+    else
+    {
+        double number = Convert.ToDouble(text);
+        if (number == 0) Console.ForegroundColor = ConsoleColor.Yellow;
+        else if (number > 0) Console.ForegroundColor = ConsoleColor.Green;
+        else Console.ForegroundColor = ConsoleColor.Red;
+        // int color = Convert.ToInt32(number)%16;
+        // Console.ForegroundColor = (ConsoleColor)color;  
+    }
 }
