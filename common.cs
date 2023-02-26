@@ -28,6 +28,13 @@ void PrintString(string prompt, string text = "")
     Console.WriteLine(prompt + ": " + text);
 }
 
+//Генераци числа, от minValue и до maxValue
+int GenerateInt(int minValue, int maxValue)
+{
+    Random rnd = new Random();
+    return rnd.Next(minValue, maxValue);
+}
+
 //Генераци заполенного массива нужного размера
 int[] GenerateArray(int length, int minValue, int maxValue)
 {
